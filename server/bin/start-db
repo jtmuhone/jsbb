@@ -1,0 +1,12 @@
+#!/bin/sh
+
+DBPORT=12345
+
+DIR=`dirname $0`
+JSBB_SERVER_HOME=$DIR/..
+
+mongod \
+       --fork --port $DBPORT \
+       --dbpath $JSBB_SERVER_HOME/data \
+       --logpath $JSBB_SERVER_HOME/data/mongodb.log --logappend
+ 
