@@ -1,0 +1,9 @@
+install:
+--------
+
+apt-get install nodejs npm
+	(http://nodejs.org/)
+apt-get install mongodb-server
+	(http://www.mongodb.org/)
+npm install mongodb mongoose
+	(http://mongoosejs.com/)
