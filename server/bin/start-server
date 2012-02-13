@@ -1,0 +1,8 @@
+#!/bin/sh
+
+DIR=`dirname $0`
+JSBB_SERVER_HOME="$DIR/.."
+JSBB_LOGDIR="$JSBB_SERVER_HOME/logs"
+
+nohup node "$JSBB_SERVER_HOME/js/server.js" 1> $JSBB_LOGDIR/server-out.log 2> $JSBB_LOGDIR/server-err.log &
+ 

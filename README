@@ -7,3 +7,5 @@ apt-get install mongodb-server
 	(http://www.mongodb.org/)
 npm install mongodb mongoose
 	(http://mongoosejs.com/)
+npm install express
+	(http://expressjs.com/)

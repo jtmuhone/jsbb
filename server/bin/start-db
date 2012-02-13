@@ -4,9 +4,15 @@ DBPORT=12345
 
 DIR=`dirname $0`
 JSBB_SERVER_HOME=$DIR/..
+JSBB_DATADIR=$JSBB_SERVER_HOME/data
+JSBB_LOGDIR=$JSBB_SERVER_HOME/logs
+
+if [ ! -e $DATADIR ]; then
+  mkdir $DATADIR
+fi
 
 mongod \
        --fork --port $DBPORT \
-       --dbpath $JSBB_SERVER_HOME/data \
-       --logpath $JSBB_SERVER_HOME/data/mongodb.log --logappend
+       --dbpath $JSBB_DATADIR \
+       --logpath $JSBB_LOGDIR/mongodb.log --logappend
  
