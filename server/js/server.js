@@ -10,14 +10,14 @@ var argv = require('optimist')
     .demand(['p','s'])
     .argv;
 
-require('./js/models/models.js').init(mongoose);
+require('./models/models.js').init(mongoose);
 var urls = require('./lib/urls.js');
 
 var User = mongoose.model('User');
 var Post = mongoose.model('Post');
 
 var app = express.createServer();
-var staticPath = path.join(__dirname, argv.s);
+var staticPath = path.join(process.cwd(), argv.s);
 
 app.configure(function () {
 	app.use(express.bodyParser());
