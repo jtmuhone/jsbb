@@ -7,12 +7,16 @@ JSBB_SERVER_HOME=$DIR/..
 JSBB_DATADIR=$JSBB_SERVER_HOME/data
 JSBB_LOGDIR=$JSBB_SERVER_HOME/logs
 
-if [ ! -e $DATADIR ]; then
-  mkdir $DATADIR
+if [ ! -e $JSBB_DATADIR ]; then
+  mkdir $JSBB_DATADIR
 fi
 
-mongod \
-       --fork --port $DBPORT \
-       --dbpath $JSBB_DATADIR \
-       --logpath $JSBB_LOGDIR/mongodb.log --logappend
- 
+if [ ! -e $JSBB_LOGDIR ]; then
+  mkdir $JSBB_LOGDIR
+fi
+
+nohup mongod \
+    --port $DBPORT \
+    --dbpath $JSBB_DATADIR \
+    1>> $JSBB_LOGDIR/db-out.log \
+    2>> $JSBB_LOGDIR/db-err.log &
