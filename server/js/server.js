@@ -11,7 +11,7 @@ var argv = require('optimist')
     .argv;
 
 require('./js/models/models.js').init(mongoose);
-var urls = require('./js/lib/urls.js');
+var urls = require('./lib/urls.js');
 
 var User = mongoose.model('User');
 var Post = mongoose.model('Post');

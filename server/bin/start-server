@@ -6,7 +6,7 @@ JSBB_LOGDIR="$JSBB_SERVER_HOME/logs"
 JSBB_APPDIR="$JSBB_SERVER_HOME/../client/"
 JSBB_PORT=1337
 
-nohup $JSBB_SERVER_HOME/server.js \
+nohup $JSBB_SERVER_HOME/js/server.js \
 	-p $JSBB_PORT \
 	-s $JSBB_APPDIR \
 	1> $JSBB_LOGDIR/server-out.log \
