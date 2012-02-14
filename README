@@ -1,11 +1,44 @@
-install:
---------
+Tech stack
+==========
 
-apt-get install nodejs npm
+JavascriptMVC 
+	"JavaScriptMVC (JMVC) is a MIT licensed, client-side, JavaScript framework
+	 that builds maintainable, error-free, lightweight applications as quick
+	 as possible. It packs best-of-breed libraries and tools that are
+	 guaranteed to work together. It supports every browser that jQuery
+	 supports."
+	(http://www.javascriptmvc.com/)
+	- PhantomJS (http://www.phantomjs.org/)
+
+Node.js
+	"Node.js is a platform built on Chrome's JavaScript runtime for easily
+	 building fast, scalable network applications. Node.js uses an
+	 event-driven, non-blocking I/O model that makes it lightweight and
+	 efficient, perfect for data-intensive real-time applications that run
+	 across distributed devices."
 	(http://nodejs.org/)
-apt-get install mongodb-server
+	- Mongoose (http://mongoosejs.com/)
+	- express (http://expressjs.com/)
+	and
+	-- optimist (https://github.com/substack/node-optimist)
+
+MongoDB
+	"MongoDB (from "humongous") is an open source document-oriented NoSQL
+	 database system written in the C++ programming language. It manages
+	 collections of BSON documents."
 	(http://www.mongodb.org/)
-npm install mongodb mongoose
-	(http://mongoosejs.com/)
-npm install express
-	(http://expressjs.com/)
+
+Installation
+============
+
+Ubuntu 11.10
+------------
+
+sudo apt-get install nodejs npm mongodb-server
+npm install mongodb mongoose express optimist
+
+*PhantomJS*
+sudo apt-get install libqt4-dev libqtwebkit-dev qt4-qmake
+git clone git://github.com/ariya/phantomjs.git && cd phantomjs
+git checkout 1.3
+qmake-qt4 && make
