@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+            "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+	<head>
+		<title>JSBB.User.Create</title>
+        <style type='text/css'>
+            body {font-family: verdana}
+        </style>
+	</head>
+	<body>
+	    <h1>JSBB.User.Create Demo</h1>
+		<form id='create' action=''></form>
+		<div id='users'></div>
+		<script type='text/javascript' 
+                src='../../../steal/steal.js'>
+        </script>
+		<script type='text/javascript'>
+			steal('jsbb/user/create','jsbb/fixtures',function(){
+				
+				$('#create').jsbb_user_create();
+				JSBB.Models.User.bind('created', function(ev, user){
+					$('<div>').html("<h3>"+user.name+"</h3><p>"+user.description+"</p>")
+					        .appendTo( $('#users') )
+				})
+				
+			})
+		</script>
+	</body>
+</html>
