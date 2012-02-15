@@ -52,6 +52,16 @@ app.get('/api/posts', function (req, res) {
 	});
 });
 
+app.post('/api/posts', function (req, res) {
+	var post = new Post(req.body);
+	post.save(function (err) {
+		if (err) {
+			return console.log(err);
+		}
+	});
+	return res.send(); 
+});
+
 app.listen(argv.p);
 
 console.log("Server ready, listening in port: " + argv.p);
