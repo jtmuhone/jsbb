@@ -23,14 +23,9 @@ app.configure(function () {
 	app.use(express.bodyParser());
 	app.use(express.methodOverride());
 	app.use(express.logger({ format: ':method :url' }));
-	app.use('/client', express.directory(staticPath));
-	app.use('/client', express.static(staticPath));
+	app.use('/', express.static(staticPath));
+	app.use('/', express.directory(staticPath));
 	app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
-	app.use(app.router);
-});
-
-app.get('/', function (req, res) {
-	res.send({resources: urls.resolve(req, ["client", "rest"])});
 });
 
 app.get('/api', function (req, res) {
