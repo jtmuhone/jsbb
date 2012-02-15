@@ -3,7 +3,7 @@ steal( 'jquery/controller',
 	   'jquery/dom/form_params',
 	   'jquery/controller/view',
 	   'jsbb/models' )
-	.then('./views/init.ejs', function($){
+	.then('./views/init.ejs', function($) {
 
 /**
  * @class JSBB.Post.Create
@@ -24,7 +24,7 @@ $.Controller('JSBB.Post.Create',
 	},
 	saved : function(){
 		this.element.find('[type=submit]').val('Create');
-		this.element[0].reset()
+		$("form")[0].reset()
 	}
 })
 

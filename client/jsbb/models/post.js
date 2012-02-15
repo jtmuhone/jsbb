@@ -9,11 +9,11 @@ steal('jquery/model', function(){
 $.Model('JSBB.Models.Post',
 /* @Static */
 {
-	findAll: "/posts.json",
-  	findOne : "/posts/{id}.json", 
-  	create : "/posts.json",
- 	update : "/posts/{id}.json",
-  	destroy : "/posts/{id}.json"
+	findAll: "/posts",
+  	findOne : "/posts/{id}", 
+  	create : "/posts",
+ 	update : "/posts/{id}",
+  	destroy : "/posts/{id}"
 },
 /* @Prototype */
 {});
