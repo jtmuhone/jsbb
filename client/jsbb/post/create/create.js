@@ -20,7 +20,6 @@ $.Controller('JSBB.Post.Create',
 	
 	submit : function(el, ev){
 		ev.preventDefault();
-		console.log("submit");
 		this.element.find('[type=submit]').val('Creating...')
 		var post = new JSBB.Models.Post(el.formParams());
 		if (!post.errors()) {
