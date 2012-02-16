@@ -19,8 +19,7 @@ Node.js
 	(http://nodejs.org/)
 	- Mongoose (http://mongoosejs.com/)
 	- express (http://expressjs.com/)
-	and
-	-- optimist (https://github.com/substack/node-optimist)
+	- optimist (https://github.com/substack/node-optimist)
 
 MongoDB
 	"MongoDB (from "humongous") is an open source document-oriented NoSQL
@@ -35,7 +34,7 @@ Ubuntu 11.10
 ------------
 
 sudo apt-get install nodejs npm mongodb-server
-npm install mongodb mongoose express optimist
+npm install mongoose express optimist
 
 *PhantomJS*
 sudo apt-get install libqt4-dev libqtwebkit-dev qt4-qmake
