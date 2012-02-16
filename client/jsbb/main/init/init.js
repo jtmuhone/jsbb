@@ -20,7 +20,7 @@ $.Controller('JSBB.Main.Init',
 {
 	init : function(){
 		document.title  = "JSBB, the Javascript Bulletin Board";
-		this.element.html(this.view('init', {}) )
+		this.element.html(this.view('init', {title: document.title}) )
 		$('#posts').jsbb_post_list();
 		$('#create_post').jsbb_post_create();
 	}
