@@ -6,11 +6,11 @@ var url = require("url");
 var express = require("express");
 var mongoose = require('mongoose');
 var argv = require('optimist')
-	.usage("Usage: server.js -p [port] -s [static_files_path]")
-    .demand(['p','s'])
+	.usage('Usage: server.js -p [port] -s [static_files_path] -m [mongodb_port]')
+    .demand(['p', 's', 'm'])
     .argv;
 
-require('./models/models.js').init(mongoose);
+require('./models/models.js').init(mongoose, argv.s);
 var urls = require('./lib/urls.js');
 
 var User = mongoose.model('User');

@@ -1,8 +1,8 @@
 
-function init(mongoose) {
+function init(mongoose, mongodb) {
 
 	var Schema = mongoose.Schema;
-	mongoose.connect('mongodb://127.0.0.1:12345/jsbb');
+	mongoose.connect('mongodb://' + mongodb);
 
 	require('./user.js').model(Schema, mongoose);
 	require('./post.js').model(Schema, mongoose);
