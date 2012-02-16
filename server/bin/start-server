@@ -1,17 +1,22 @@
 #!/bin/sh
 
+JSBB_SERVER_PORT=1337
+JSBB_DB_HOST=localhost
+JSBB_DB_PORT=12345
+JSBB_DB_NAME=jsbb
+
 DIR=`dirname $0`
 JSBB_SERVER_HOME="$DIR/.."
 JSBB_LOGDIR="$JSBB_SERVER_HOME/logs"
 JSBB_APPDIR="$JSBB_SERVER_HOME/../client/"
-JSBB_PORT=1337
 
 if [ ! -e $JSBB_LOGDIR ]; then
   mkdir $JSBB_LOGDIR
 fi
 
 nohup $JSBB_SERVER_HOME/js/server.js \
-	-p $JSBB_PORT \
+	-p $JSBB_SERVER_PORT \
 	-s $JSBB_APPDIR \
+    -m $JSBB_DB_HOST:$JSBB_DB_PORT/$JSBB_DB_NAME \
 	1>> $JSBB_LOGDIR/server-out.log \
 	2>> $JSBB_LOGDIR/server-err.log &

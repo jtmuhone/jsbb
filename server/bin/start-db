@@ -1,6 +1,6 @@
 #!/bin/sh
 
-DBPORT=12345
+JSBB_DB_PORT=12345
 
 DIR=`dirname $0`
 JSBB_SERVER_HOME=$DIR/..
@@ -16,7 +16,7 @@ if [ ! -e $JSBB_LOGDIR ]; then
 fi
 
 nohup mongod \
-    --port $DBPORT \
+    --port $JSBB_DB_PORT \
     --dbpath $JSBB_DATADIR \
     1>> $JSBB_LOGDIR/db-out.log \
     2>> $JSBB_LOGDIR/db-err.log &
