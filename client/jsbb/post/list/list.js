@@ -24,10 +24,8 @@ $.Controller('JSBB.Post.List',
 	},
 	'.destroy click': function( el ){
 		if(confirm("Are you sure you want to destroy?")){
-			var post = el.closest('.post').model();
-			console.log(post);
-			console.log(post._id);
-			JSBB.Models.Post.destroy(post._id);
+			console.log(el.closest('.post').model());
+			el.closest('.post').model().destroy();
 		}
 	},
 	"{JSBB.Models.Post} destroyed" : function(Post, ev, post) {

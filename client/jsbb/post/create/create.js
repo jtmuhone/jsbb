@@ -17,14 +17,26 @@ $.Controller('JSBB.Post.Create',
 	init : function(){
 		this.element.html(this.view());
 	},
+	
 	submit : function(el, ev){
 		ev.preventDefault();
+		console.log("submit");
 		this.element.find('[type=submit]').val('Creating...')
-		new JSBB.Models.Post(el.formParams()).save(this.callback('saved'));
+		var post = new JSBB.Models.Post(el.formParams());
+		if (!post.errors()) {
+			post.save(this.callback('success'), this.callback('error'));
+		} else {
+			this.error(post.errors());
+		}
 	},
-	saved : function(){
+	
+	success : function(){
 		this.element.find('[type=submit]').val('Create');
 		$("form")[0].reset()
+	},
+	
+	error : function() {
+		this.element.find('[type=submit]').val('Failed');
 	}
 })
 

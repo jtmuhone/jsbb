@@ -1,6 +1,7 @@
 steal(
 	'./jsbb.css',
 	'./models/models.js',
+	'./resources/resources.js',
 	'jsbb/main/init',
 	'jsbb/post/create',
 	'jsbb/post/list',
@@ -11,6 +12,6 @@ steal(
 		steal("./fixtures/fixtures.js");
 	}
 })
-.then(function(){					// configure your application
+.then(function(){
 	$('body').jsbb_main_init();
 })
