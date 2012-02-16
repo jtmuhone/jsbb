@@ -16,7 +16,11 @@ steal("jquery/dom/fixture", function() {
 			 "date" : new Date(1329384495592)
 		 }
 		 ];
+	var FIXTURE_POSTS_NEXT_ID = 3;
 	$.fixture("GET /posts", function (orig, settings, headers) {
 		return [200, "success", FIXTURE_POSTS, {}];
+	});
+	$.fixture("PUT /posts", function (orig, settings, headers) {
+		return [200, "success", {"_id" : FIXTURE_POSTS_NEXT_ID++}, {}];
 	});
 });
