@@ -52,15 +52,30 @@ app.get('/api/posts', function (req, res) {
 	});
 });
 
-app.post('/api/posts', function (req, res) {
+app.put('/api/posts', function (req, res) {
 	var post = new Post(req.body);
 	post.save(function (err) {
-		if (err) {
-			return console.log(err);
+		if (!err) {
+			return res.send();
+		} else { 
+			console.log(err);
+			return res.send(400);
 		}
 	});
-	return res.send(); 
 });
+
+app.delete('/api/posts/:id', function (req, res){
+	return Post.findById(req.params.id, function (err, post) {
+		return post.remove(function (err) {
+			if (!err) {
+				return res.send('');
+			} else {
+				console.log(err);
+				return res.send(500);
+			}
+		});
+	});
+}); 
 
 app.listen(argv.p);
 

@@ -3,11 +3,10 @@ function model(Schema, mongoose) {
 	var ObjectId = Schema.ObjectId;
 	
 	var PostSchema = new Schema({
-		id: {type : ObjectId, required: true},
-		author : {type : ObjectId, required: true},
+		author : {type : ObjectId},
 		title : {type : String, required: true},
 	    body : {type : String, required: true},
-	    date : {type : Date, default : Date.now} 
+	    date : {type : Date, required: true} 
 	});
 	
 	mongoose.model('Post', PostSchema);
