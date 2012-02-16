@@ -10,7 +10,7 @@ var argv = require('optimist')
     .demand(['p', 's', 'm'])
     .argv;
 
-require('./models/models.js').init(mongoose, argv.s);
+require('./models/models.js').init(mongoose, argv.m);
 var urls = require('./lib/urls.js');
 
 var User = mongoose.model('User');
