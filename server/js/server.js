@@ -56,7 +56,7 @@ app.put('/api/posts', function (req, res) {
 	var post = new Post(req.body);
 	post.save(function (err) {
 		if (!err) {
-			return res.send();
+			return res.send({_id : post._id});
 		} else { 
 			console.log(err);
 			return res.send(400);
