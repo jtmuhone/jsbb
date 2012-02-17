@@ -77,6 +77,11 @@ app.delete('/api/posts/:id', function (req, res){
 	});
 }); 
 
+process.on('SIGINT', function () {
+    console.log('Got SIGINT, shutting down server.');
+    process.exit()
+});
+
 app.listen(argv.p);
 
 console.log("Server ready, listening in port: " + argv.p);
