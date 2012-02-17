@@ -18,11 +18,14 @@ var Post = mongoose.model('Post');
 
 var app = express.createServer();
 var staticPath = path.join(process.cwd(), argv.s);
-
+var logFormat =
+    ':remote-addr [:date] ":method :url HTTP/:http-version" :status '
+    + ':res[Content-Length] ":referrer" ":user-agent"';
+    
 app.configure(function () {
 	app.use(express.bodyParser());
 	app.use(express.methodOverride());
-	app.use(express.logger({ format: ':method :url' }));
+	app.use(express.logger({ format: logFormat }));
 	app.use('/', express.static(staticPath));
 	app.use('/', express.directory(staticPath));
 	app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
