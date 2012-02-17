@@ -159,14 +159,20 @@ Date.
  * @return {string} The date object
  */
 parseISO8601 = function(str) {
-	if (str.match("^\\d{4}-\\d{2}-\\d{2}Z?$")) {
+	if (str.match("^\\d{4}-\\d{2}-\\d{2}$")) {
 		return new Date(parseInt(str.substring(0, 4)), parseInt(str.substring(5, 7)) - 1, parseInt(str.substring(8, 10)));
-	} else if (str.match("^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z?$")) {
+	} else if (str.match("^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}$")) {
 		return new Date(parseInt(str.substring(0, 4)), parseInt(str.substring(5, 7)) - 1, parseInt(str.substring(8, 10)),
 				parseInt(str.substring(11, 13)), parseInt(str.substring(14, 16)), parseInt(str.substring(17, 19)));
-	} else if (str.match("^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}Z?$")) {
-		return new Date(parseInt(str.substring(0, 4)), parseInt(str.substring(5, 7)) - 1, parseInt(str.substring(8, 10)),
-				parseInt(str.substring(11, 13)), parseInt(str.substring(14, 16)), parseInt(str.substring(17, 19)), parseInt(str.substring(20, 23)));
+    } else if (str.match("^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$")) {
+        return new Date(Date.UTC(parseInt(str.substring(0, 4)), parseInt(str.substring(5, 7)) - 1, parseInt(str.substring(8, 10)),
+                parseInt(str.substring(11, 13)), parseInt(str.substring(14, 16)), parseInt(str.substring(17, 19))));
+	} else if (str.match("^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}$")) {
+        return new Date(parseInt(str.substring(0, 4)), parseInt(str.substring(5, 7)) - 1, parseInt(str.substring(8, 10)),
+                parseInt(str.substring(11, 13)), parseInt(str.substring(14, 16)), parseInt(str.substring(17, 19)), parseInt(str.substring(20, 23)));
+    } else if (str.match("^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}Z$")) {
+        return new Date(Date.UTC(parseInt(str.substring(0, 4)), parseInt(str.substring(5, 7)) - 1, parseInt(str.substring(8, 10)),
+                parseInt(str.substring(11, 13)), parseInt(str.substring(14, 16)), parseInt(str.substring(17, 19)), parseInt(str.substring(20, 23))));
 	} else {
 		return new Date(Number.NaN);
 	}
