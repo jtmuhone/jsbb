@@ -1,9 +1,8 @@
-steal( 'jquery/controller',
-	   'jquery/view/ejs',
-	   'jquery/controller/view',
-	   'jsbb/models' )
-.then( './views/init.ejs', 
-       function($) {
+steal('jquery/controller',
+	  'jquery/view/ejs',
+	  'jquery/controller/view')
+.then('./views/init.ejs', 
+      function($) {
 
 /**
  * @class JSBB.Post.List
