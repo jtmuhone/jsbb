@@ -25,6 +25,7 @@ $.Controller('JSBB.Chat.List',
 this.element.html(this.view('init', {} ));
       socket.on('chat message', (function (msg) {
           $('#chat_lines').append($('<p>').append("&gt;&gt; " + msg));
+          $('#chat_lines').prop('scrollTop', $("#chat_lines").prop("scrollHeight"));
       }));
 
 
