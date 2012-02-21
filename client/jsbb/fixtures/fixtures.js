@@ -1,2 +1,2 @@
 // map fixtures for this application
-steal("./posts.js");
+steal('./posts.js', './socket.js');
