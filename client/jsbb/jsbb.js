@@ -3,8 +3,11 @@ steal('./resources/resources.js',
 .then('jsbb/main/init',
 	  'jsbb/post/create',
 	  'jsbb/post/list',
+	  'jsbb/chat/window',
+	  'jsbb/chat/write',
+	  'jsbb/chat/list',
 	  'jsbb/user/create',
-    'jsbb/user/list')
+      'jsbb/user/list')
 .then('./jsbb.less',
     function() {
         if (steal.options.env == 'fixtures') {

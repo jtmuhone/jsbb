@@ -2,6 +2,7 @@
 
 var path = require("path");
 var url = require("url");
+var sio = require("socket.io");
 
 var express = require("express");
 var mongoose = require('mongoose');
@@ -79,6 +80,15 @@ app.delete('/api/posts/:id', function (req, res){
 		});
 	});
 }); 
+
+var io = sio.listen(app)
+
+io.sockets.on('connection', function (socket) {
+  socket.on('chat message', function (msg) {
+    socket.broadcast.emit('chat message', msg);
+  });
+});
+
 
 process.on('SIGINT', function () {
     console.log('Got SIGINT, shutting down server.');

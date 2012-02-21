@@ -1,48 +1,78 @@
 #main {
   font-family:Lucida Sans,Lucida Grande,Arial,sans-serif;
-  top: 20px;
-  right: 20px;
-  bottom: 20px;
-  left: 20px;
+  position: absolute;
+  margin: 10px;
   border: solid 2px #ddd;
   border-radius: 20px;
+  left: 0px;
+  right: 0px;
   padding: 20px;
   background-image: -moz-linear-gradient(to bottom, #fff, #eee);
   #posts {
-    .post {
+    left: 0px;
+    margin-right: 300px;
+    #post_list {
+      .post {
+        border: solid 2px #ddd;
+        border-radius: 20px;
+        padding: 20px;
+        margin: 20px;
+        background-image: -moz-linear-gradient(to bottom, #fff, #eee);
+        .destroy {
+          display: inline-block;
+          border: solid 2px #000;
+          border-radius: 5px;
+          background-color: #d00;
+          color: #000;
+          padding: 1px;
+          width: 12px;
+          heigth: 12px;
+          font-size: 12px;
+          text-align: center;
+          text-decoration: none;
+          font-weight: bold;
+          vertical-align: 10%;
+        }
+        .post_body {
+          white-space: pre;
+          font-family: "courier new", monospace;
+          font-size: 12px;
+          display: inline-block;
+          border: solid 1px;
+          background-color: #fff;
+          padding: 10px;
+        }
+      }
+    }
+    #create_post {
       border: solid 2px #ddd;
       border-radius: 20px;
       padding: 20px;
       margin: 20px;
       background-image: -moz-linear-gradient(to bottom, #fff, #eee);
-      .destroy {
-        display: inline-block;
-        border: solid 2px #000;
-        border-radius: 5px;
-        background-color: #d00;
-        color: #000;
-        padding: 1px;
-        width: 12px;
-        heigth: 12px;
-        font-size: 12px;
-        text-align: center;
-        text-decoration: none;
-        font-weight: bold;
-        vertical-align: 10%;
-      }
-      .post_body {
-        display: inline-block;
-        border: solid 1px;
-        background-color: #fff;
-        padding: 10px;
-      }
     }
   }
-  #create_post {
+  #chat {
     border: solid 2px #ddd;
     border-radius: 20px;
+    float: right;
+    width: 240px;
     padding: 20px;
-    margin: 20px;
     background-image: -moz-linear-gradient(to bottom, #fff, #eee);
+    &.connected {
+      background-image: -moz-linear-gradient(to bottom, #fff, #e66);
+      border: solid 2px #d00;
+    }
+    #chat_lines {
+      white-space: pre;
+      font-family: "courier new", monospace;
+      font-size: 12px;
+      display: block;
+      left: 0px;
+      right: 0px;
+      border: solid 1px;
+      background-color: #fff;
+      padding: 10px;
+    }
   }
 }
