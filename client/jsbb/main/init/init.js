@@ -22,12 +22,12 @@ $.Controller('JSBB.Main.Init',
 		this.element.html(this.view('init', {title: document.title}) )
 		$('#post_list').jsbb_post_list();
 		$('#create_post').jsbb_post_create();
-		var socket = new io.connect();
-        socket.on('connect', function () {
+		var chat_socket = io.connect('/chat', {resource: 'api/socket'});
+		chat_socket.on('connect', function () {
             $('#chat').addClass('connected');
         });
-        $('#chat_list').jsbb_chat_list(socket);
-		$('#chat_write').jsbb_chat_write(socket);
+        $('#chat_list').jsbb_chat_list(chat_socket);
+		$('#chat_write').jsbb_chat_write(chat_socket);
 	}
 });
 

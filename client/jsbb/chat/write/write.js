@@ -22,7 +22,6 @@ $.Controller('JSBB.Chat.Write',
 	submit : function(el, ev){
 		ev.preventDefault();
 		var msg = $('#chat_message').val();
-		$('#chat_lines').append($('<p>').append("&lt;&lt; " + msg));
         this.socket.emit('chat message', msg);
 	}
 })
