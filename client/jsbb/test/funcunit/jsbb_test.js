@@ -1,11 +1,11 @@
 steal("funcunit", function(){
-	module("jsbb test", { 
+	module("Main test", { 
 		setup: function(){
-			S.open("//jsbb/jsbb.html");
+			S.open("//jsbb/fixtures.html");
 		}
 	});
 	
-	test("Copy Test", function(){
-		equals(S("h1").text(), "Welcome to JavaScriptMVC 3.2!","welcome text");
+	test("Main page", function(){
+		equals(S("h1").text(), "JSBB, the Javascript Bulletin Board");
 	});
 })
