@@ -1,5 +1,5 @@
 
-function init(app, express) {
+function init(app, express, websockets) {
 
     var mongoose = require('mongoose');
 
@@ -8,11 +8,6 @@ function init(app, express) {
     var User = mongoose.model('User');
     var Post = mongoose.model('Post');
 
-    app.configure(function () {
-        app.use(express.bodyParser());
-        app.use(express.methodOverride());
-    });
-    
     app.get('/api', function (req, res) {
         res.send({resources: urls.resolve(req, ["users", "posts"])});
     });
@@ -41,6 +36,7 @@ function init(app, express) {
         var post = new Post(req.body);
         post.save(function (err) {
             if (!err) {
+                websockets.newPost(post);
                 return res.send({_id : post._id});
             } else { 
                 console.log(err);
@@ -53,6 +49,7 @@ function init(app, express) {
         return Post.findById(req.params.id, function (err, post) {
             return post.remove(function (err) {
                 if (!err) {
+                    websockets.deletePost(post);
                     return res.send('');
                 } else {
                     console.log(err);

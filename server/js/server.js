@@ -17,6 +17,8 @@ var logFormat =
     + ':res[Content-Length] ":referrer" ":user-agent"';
     
 app.configure(function () {
+    app.use(express.bodyParser());
+    app.use(express.methodOverride());
     app.use(express.logger({ format: logFormat }));
     app.use('/', express.static(staticPath));
     app.use('/', express.directory(staticPath));
@@ -24,8 +26,8 @@ app.configure(function () {
 });
 
 require('./models/models.js').init(mongoose, argv.m);
-require("./rest/rest.js").init(app, express);
-require("./websockets/websockets.js").init(app);
+var websockets = require("./websockets/websockets.js").init(app);
+require("./rest/rest.js").init(app, express, websockets);
 
 process.on('SIGINT', function () {
     console.log('Got SIGINT, shutting down server.');
