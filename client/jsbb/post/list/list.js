@@ -21,7 +21,6 @@ $.Controller('JSBB.Post.List',
 {
 	init : function(element, socket) {
 		this.element.html(this.view('init',JSBB.Models.Post.findAll()));
-		console.log(socket);
 		socket.on('new post', this.callback('newPost'));
 		socket.on('delete post', this.callback('deletePost'));
 	},
