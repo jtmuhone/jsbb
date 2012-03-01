@@ -63,7 +63,7 @@ Installation
 #### Basic libraries
 
     sudo apt-get install nodejs npm mongodb-server redis-server
-    npm install mongoose redis express socket.io optimist
+    npm install mongoose hiredis redis express socket.io optimist
     sudo apt-get install markdown
 
 #### PhantomJS

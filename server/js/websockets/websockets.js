@@ -1,9 +1,16 @@
 
-function init(app) {
+function init(app, redis, redisClient) {
     var sio = require("socket.io");
+    var RedisStore = sio.RedisStore;
     var io = sio.listen(app);
     io.set('resource', '/api/socket');
-    
+
+    io.set('store', new RedisStore({redis: redis,
+        redisPub: redis.createClient(),
+        redisSub: redis.createClient(),
+        redisClient: redisClient
+    }));
+
     io.of('/chat').on('connection', function (socket) {
       socket.on('chat message', function (msg) {
         socket.emit('chat message', msg);
@@ -19,12 +26,10 @@ function init(app) {
 
 
     websockets.newPost = function (post) {
-        console.log("!!!new post!!!");
         io.of('/post').emit('new post', post);
     }
 
     websockets.deletePost = function (post) {
-        console.log("!!!delete post!!!");
         io.of('/post').emit('delete post', post);
     }
 

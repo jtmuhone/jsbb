@@ -4,6 +4,7 @@ var path = require("path");
 
 var express = require("express");
 var mongoose = require('mongoose');
+var redis = require('redis');
 
 var argv = require('optimist')
 	.usage('Usage: server.js -p [port] -s [static_files_path] -m [mongodb_port]')
@@ -26,7 +27,7 @@ app.configure(function () {
 });
 
 require('./models/models.js').init(mongoose, argv.m);
-var websockets = require("./websockets/websockets.js").init(app);
+var websockets = require("./websockets/websockets.js").init(app, redis, redis.createClient());
 require("./rest/rest.js").init(app, express, websockets);
 
 process.on('SIGINT', function () {
