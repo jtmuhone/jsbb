@@ -7,8 +7,6 @@ JSBB_SERVER_HOME=$DIR/..
 JSBB_SESSIONDIR=$JSBB_SERVER_HOME/session
 JSBB_LOGDIR=$JSBB_SERVER_HOME/logs
 JSBB_SESSION_PIDFILE=$JSBB_LOGDIR/session.pid
-JSBB_SESSION_CONFFILE=$JSBB_SESSIONDIR/redis-config
-JSBB_SESSION_DBFILE=$JSBB_SESSIONDIR/redis-dump.aof
 
 if [ ! -e $JSBB_SESSION_PIDFILE ]; then
 
@@ -20,23 +18,10 @@ if [ ! -e $JSBB_SESSION_PIDFILE ]; then
     mkdir $JSBB_LOGDIR
   fi
   
-  cat <<EOF > $JSBB_SESSION_CONFFILE
-daemonize no
-port $JSBB_SESSION_PORT
-timeout 0
-appendonly yes
-dbfilename $JSBB_SESSION_DBFILE
-dir $JSBB_SESSIONDIR
-loglevel debug
-logfile stdout
-databases 1
-maxclients 0
-maxmemory 524288000
-glueoutputbuf yes
-EOF
 
-  redis-server \
-	$JSBB_SESSION_CONFFILE \
+  $DIR/start-redis-server.sh \
+	-p $JSBB_SESSION_PORT \
+	-d $JSBB_SESSIONDIR \
     1>> $JSBB_LOGDIR/session-out.log \
     2>> $JSBB_LOGDIR/session-err.log &
 
