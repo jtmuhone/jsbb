@@ -7,12 +7,12 @@ var mongoose = require('mongoose');
 var redis = require('redis');
 
 var argv = require('optimist')
-	.usage('Usage: server.js -p [port] -s [static_files_path] -m [mongodb_port]')
-    .demand(['p', 's', 'm'])
+	.usage('Usage: server.js -p [port] -f [static_files_path] -m [mongodb_url] -s [redis_url]')
+    .demand(['p', 'f', 'm', 's'])
     .argv;
 
 var app = express.createServer();
-var staticPath = path.join(process.cwd(), argv.s);
+var staticPath = path.join(process.cwd(), argv.f);
 var logFormat =
     ':remote-addr [:date] ":method :url HTTP/:http-version" :status '
     + ':res[Content-Length] ":referrer" ":user-agent"';
@@ -27,7 +27,7 @@ app.configure(function () {
 });
 
 require('./models/models.js').init(mongoose, argv.m);
-var websockets = require("./websockets/websockets.js").init(app, redis, redis.createClient());
+var websockets = require("./websockets/websockets.js").init(app, redis, argv.s);
 require("./rest/rest.js").init(app, express, websockets);
 
 process.on('SIGINT', function () {

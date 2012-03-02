@@ -1,4 +1,5 @@
 .project
 server/data
 server/logs
+server/session
 client/build
