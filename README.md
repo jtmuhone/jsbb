@@ -76,4 +76,11 @@ Installation
 Getting started
 ---------------
 
+    git clone --recursive git://github.com/jtmuhone/jsbb.git
+    cd jsbb/client
+    bin/unit-test
+    bin/func-test
+    
     TODO
+    
+    
