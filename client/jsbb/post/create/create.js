@@ -20,7 +20,7 @@ $.Controller('JSBB.Post.Create',
 	
 	submit : function(el, ev){
 		ev.preventDefault();
-		this.element.find('[type=submit]').val('Creating...')
+		$("#create_post_button").html('Creating...');
 		var post = new JSBB.Models.Post(el.formParams());
 		if (!post.errors()) {
 			post.save(this.callback('success'), this.callback('error'));
@@ -30,12 +30,12 @@ $.Controller('JSBB.Post.Create',
 	},
 	
 	success : function(){
-		this.element.find('[type=submit]').val('Create');
+		$("#create_post_button").html('Create');
 		$("form")[0].reset()
 	},
 	
 	error : function() {
-		this.element.find('[type=submit]').val('Failed');
+        $("#create_post_button").html('Failed');
 	}
 })
 

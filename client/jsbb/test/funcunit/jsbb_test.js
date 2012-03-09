@@ -1,5 +1,5 @@
 steal("funcunit", function(){
-	module("Main test", { 
+	module("JSBB test", { 
 		setup: function(){
 			S.open("//jsbb/fixtures.html");
 		}
