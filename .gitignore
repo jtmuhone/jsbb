@@ -4,3 +4,4 @@ server/logs
 server/session
 client/build
 testresults.xml
+*~
