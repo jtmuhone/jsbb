@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 DIR=`dirname $0`
 JSBB_CLIENT_HOME="$DIR/.."
