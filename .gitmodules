@@ -1,0 +1,15 @@
+[submodule "client/resources/socket.io"]
+	path = client/resources/socket.io
+	url = git://github.com/LearnBoost/socket.io-client
+[submodule "client/documentjs"]
+	path = client/documentjs
+	url = https://github.com/jupiterjs/documentjs
+[submodule "client/jquery"]
+	path = client/jquery
+	url = https://github.com/jupiterjs/jquerymx
+[submodule "client/funcunit"]
+	path = client/funcunit
+	url = https://github.com/jupiterjs/funcunit
+[submodule "client/steal"]
+	path = client/steal
+	url = https://github.com/jupiterjs/steal

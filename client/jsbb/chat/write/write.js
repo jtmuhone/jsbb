@@ -1,8 +1,7 @@
 steal( 'jquery/controller',
        'jquery/view/ejs',
 	   'jquery/dom/form_params',
-	   'jquery/controller/view',
-	   'external/socket-io')
+	   'jquery/controller/view')
 	.then('./views/init.ejs', function($) {
 
 /**

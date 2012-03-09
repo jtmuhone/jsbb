@@ -1,6 +1,7 @@
 steal('jquery/controller',
 	  'jquery/view/ejs',
-	  'jquery/controller/view')
+	  'jquery/controller/view',
+	  'resources/socket.io/dist/socket.io.js')
 .then('./views/init.ejs', 
       function($) {
 
