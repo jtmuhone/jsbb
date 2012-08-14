@@ -2,6 +2,7 @@
 server/data
 server/logs
 server/session
+server/node_modules
 client/build
 testresults.xml
 *~
