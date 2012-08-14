@@ -1,8 +1,8 @@
 
-function init(app, redis, redisPub, redisSub, redisClient) {
+function init(server, redis, redisPub, redisSub, redisClient) {
     var sio = require("socket.io");
     var RedisStore = sio.RedisStore;
-    var io = sio.listen(app);
+    var io = sio.listen(server);
     
     io.set('resource', '/api/socket');
     io.set('log level', 1);

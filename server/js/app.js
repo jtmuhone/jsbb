@@ -3,13 +3,14 @@ function start(port, staticFiles, mongoose, redis, redisPub, redisSub, redisClie
 
     var express = require('express');
     var path = require('path');
-
-    var app = express.createServer();
+    var http = require('http');
+    var app = express();
+    var server = http.createServer(app);
     var staticPath = path.join(process.cwd(), staticFiles);
     var logFormat =
         ':remote-addr [:date] ":method :url HTTP/:http-version" :status '
         + ':res[Content-Length] ":referrer" ":user-agent"';
-
+    
     app.configure(function () {
         app.use(express.bodyParser());
         app.use(express.methodOverride());
@@ -20,10 +21,10 @@ function start(port, staticFiles, mongoose, redis, redisPub, redisSub, redisClie
     });
 
     require('./models/models.js').init(mongoose);
-    var websockets = require("./websockets/websockets.js").init(app, redis, redisPub, redisSub, redisClient);
+    var websockets = require("./websockets/websockets.js").init(server, redis, redisPub, redisSub, redisClient);
     require("./rest/rest.js").init(app, express, websockets);
-
-    app.listen(port);
+    
+    server.listen(port);
 
     console.log("Server ready, listening in port: " + port);
     console.log("Serving static files from: " + staticPath);
