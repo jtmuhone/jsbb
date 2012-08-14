@@ -1,6 +1,3 @@
-[submodule "client/resources/socket.io"]
-	path = client/resources/socket.io
-	url = git://github.com/LearnBoost/socket.io-client
 [submodule "client/documentjs"]
 	path = client/documentjs
 	url = https://github.com/jupiterjs/documentjs
