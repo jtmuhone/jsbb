@@ -1,0 +1,6 @@
+<% console.log(post) %>
+<li class="post" <%= (el) -> el.data('post', post) %> >
+<h3 class="post_title"><%= post.attr('title') %></h3>
+<p><span class="post_date"><%= post.attr('date').format("dd.mm.yyyy HH:MM:ss") %></span> <a href='javascript://' class='destroy'>X</a></p>
+<p class="post_body"><%= post.attr('body') %></p>
+</li>
