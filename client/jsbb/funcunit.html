@@ -3,6 +3,11 @@
 	<head>
 		<link rel="stylesheet" type="text/css" href="../funcunit/qunit/qunit.css" />
 		<title>jsbb FuncUnit Test</title>
+		<script type='text/javascript'>
+			steal = {
+				instrument: ['*/test', '*_test.js', '*jquery.js', '*qunit.js', 'jquery/*.js', 'steal/*.js', 'funcunit/*.js', 'resources/*.js', 'jsbb/fixtures/*.js']
+			}
+		</script>
 		<script type='text/javascript' src='../steal/steal.js?jsbb/test/funcunit'></script>
 	</head>
 	<body>

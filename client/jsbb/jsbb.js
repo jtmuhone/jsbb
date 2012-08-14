@@ -8,13 +8,13 @@ steal('./resources/resources.js',
 	  'jsbb/user/create',
       'jsbb/user/list')
 .then('./jsbb.less',
-    function() {
-        if (steal.options.env == 'fixtures') {
-            steal("./fixtures/fixtures.js");
-        }
-    },
-	function() {
-		$(function() {
-			$('body').jsbb_main_init();
-		});
-	});
+      function() {
+          if (steal.options.env == 'fixtures') {
+              steal("./fixtures/fixtures.js");
+          }
+      },
+      function() {
+	  $(function() {
+	      $('body').jsbb_main_init();
+	  });
+      });

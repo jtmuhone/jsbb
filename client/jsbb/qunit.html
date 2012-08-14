@@ -4,7 +4,10 @@
 		<link rel="stylesheet" type="text/css" href="../funcunit/qunit/qunit.css" />
 		<title>jsbb QUnit Test</title>
 		<script type='text/javascript'>
-			steal = {ignoreControllers: true}
+			steal = {
+			    ignoreControllers: true,
+				instrument: ['*/test', '*_test.js', '*jquery.js', '*qunit.js', 'jquery/*.js', 'steal/*.js', 'funcunit/*.js', 'resources/*.js', 'jsbb/fixtures/*.js']
+			}
 		</script>
 		<script type='text/javascript' src='../steal/steal.js?jsbb/test/qunit'></script>
 	</head>
