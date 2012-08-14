@@ -4,9 +4,6 @@
 [submodule "client/documentjs"]
 	path = client/documentjs
 	url = https://github.com/jupiterjs/documentjs
-[submodule "client/jquery"]
-	path = client/jquery
-	url = https://github.com/jupiterjs/jquerymx
 [submodule "client/funcunit"]
 	path = client/funcunit
 	url = https://github.com/jupiterjs/funcunit
