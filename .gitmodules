@@ -13,3 +13,6 @@
 [submodule "client/can"]
 	path = client/can
 	url = https://github.com/jupiterjs/canjs
+[submodule "client/lib/socket.io"]
+	path = client/lib/socket.io
+	url = https://github.com/LearnBoost/socket.io-client
