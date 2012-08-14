@@ -10,3 +10,9 @@
 [submodule "client/steal"]
 	path = client/steal
 	url = https://github.com/jupiterjs/steal
+[submodule "client/jquery"]
+	path = client/jquery
+	url = https://github.com/jupiterjs/jquerypp
+[submodule "client/can"]
+	path = client/can
+	url = https://github.com/jupiterjs/canjs
