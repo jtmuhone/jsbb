@@ -4,16 +4,23 @@ JSBB, the JavaScript Bulleting Board
 Tech stack
 ----------
 
-### JavascriptMVC ([http://www.javascriptmvc.com](http://www.javascriptmvc.com/))
+### DoneJS ([http://donejs.com/](http://donejs.com))
 
 As the front-end client JavaScript framework.   
  
+> "DoneJS is the next generation of JavaScriptMVC."
+
 > "JavaScriptMVC (JMVC) is a MIT licensed, client-side, JavaScript framework
 >  that builds maintainable, error-free, lightweight applications as quick
 >  as possible. It packs best-of-breed libraries and tools that are
 >  guaranteed to work together. It supports every browser that jQuery
 >  supports."
 	 
+- CanJS ([http://canjs.us/](http://canjs.us))
+- jQuery ([http://jquery.com/](http://jquery.com))
+- jQuery++ ([http://jquerypp.com/](http://jquerypp.com))
+- StealJS ([http://stealjs.com/](http://stealjs.com))
+- FuncUnit ([http://funcunit.com/](http://funcunit.com))
 - PhantomJS ([http://www.phantomjs.org](http://www.phantomjs.org/))
 
 ### Node.js ([http://nodejs.org](http://nodejs.org/))
