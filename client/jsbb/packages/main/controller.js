@@ -2,8 +2,10 @@ steal('can/control',
       'can/view/ejs',
       'lib/socket.io/dist/socket.io.js')
 .then('jsbb/packages/main/view.ejs')
-.then('jsbb/packages/post/list/controller.js')
-.then('jsbb/packages/post/create/controller.js')
+.then('jsbb/packages/post/list/controller.js',
+      'jsbb/packages/post/create/controller.js',
+      'jsbb/packages/chat/list/controller.js',
+      'jsbb/packages/chat/write/controller.js')
 .then(function() {
     MainController = can.Control({
 	defaults : {}
@@ -22,8 +24,8 @@ steal('can/control',
 		steal.dev.log("chat connected.");
 		$('#chat').addClass('connected');
 	    });
-	    //$('#chat_list').jsbb_chat_list(chatSocket);
-	    //$('#chat_write').jsbb_chat_write(chatSocket);
+	    new ChatListController('#chat_list', {socket: chatSocket});
+	    new ChatWriteController('#chat_write', {socket: chatSocket});
 	}
     });
 });
