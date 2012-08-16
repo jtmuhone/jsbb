@@ -69,16 +69,9 @@ Installation
 
 #### Basic libraries
 
-    sudo apt-get install nodejs npm mongodb-server redis-server
+    sudo apt-get install nodejs npm mongodb-server redis-server phantomjs
     npm install mongoose hiredis redis express socket.io optimist
     sudo apt-get install markdown
-
-#### PhantomJS
-
-    sudo apt-get install libqt4-dev libqtwebkit-dev qt4-qmake
-    git clone git://github.com/ariya/phantomjs.git && cd phantomjs
-    git checkout 1.3
-    qmake-qt4 && make
 
 Getting started
 ---------------
@@ -89,5 +82,3 @@ Getting started
     bin/func-test
     
     TODO
-    
-    

@@ -11,26 +11,28 @@ steal('can/control',
 	}
     }, {
 	init : function(element, opts) {
-	    steal.dev.log("PostListController init()");
+	    steal.dev.log("PostListController.init()");
 	    PostModel.findAll({}, this.proxy('render'));
 	    this.options.socket.on('new post', this.proxy('newPost'));
 	    this.options.socket.on('delete post', this.proxy('deletePost'));
 	},
 
 	render: function(posts) {
+	    steal.dev.log("PostListController.render(" + posts.length + ")");
 	    this.options.posts = posts;
 	    this.element.html(can.view('jsbb/packages/post/list/view.ejs',
 				      posts));
 	},
 
 	'.destroy click': function(el){
+	    steal.dev.log(".destroy click()");
 	    if (confirm("Are you sure you want to destroy?")) {
 	        el.closest('.post').data('post').destroy();
 	    }
 	},
 
 	newPost: function(postData) {
-	    steal.dev.log("newPost(\"" + postData._id + "\")");
+	    steal.dev.log("PostListController.newPost(\"" + postData._id + "\")");
 	    var index = this.indexOfPost(postData);
 	    if (index < 0) {
 		var post = new PostModel(postData);
@@ -40,7 +42,7 @@ steal('can/control',
 	},
 
 	deletePost: function(postData) {
-	    steal.dev.log("deletePost(\"" + postData._id + "\")");
+	    steal.dev.log("PostListController.deletePost(\"" + postData._id + "\")");
 	    var index = this.indexOfPost(postData);
 	    if (index >= 0) {
 		this.options.posts.splice(index, 1);

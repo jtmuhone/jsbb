@@ -1,7 +1,7 @@
 steal(function() {
-
+    
     var dummy_io = {};
-
+    
     dummy_io.callbacks = {};
     
     dummy_io.on = function(event, callback) {

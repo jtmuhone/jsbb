@@ -1,13 +1,8 @@
 #!/usr/bin/env bash
 
 DIR=`dirname $0`
-JSBB_CLIENT_HOME="$DIR/.."
+BASE_DIR=`readlink -m $DIR/..`
 
-cd $JSBB_CLIENT_HOME
-java -Xmx512m -Xss1024k \
-    -cp steal/rhino/js.jar \
-    org.mozilla.javascript.tools.shell.Main \
-    -e "_args=['envjs','jsbb/qunit.html']" \
-    -opt -1 \
-    -e "load('funcunit/run')"
+MODULE=$1
+$DIR/js.sh funcunit/open/phantomjs $MODULE/qunit.html -coverage
 EXITCODE=$?

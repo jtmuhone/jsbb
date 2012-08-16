@@ -1,9 +1,14 @@
 <!DOCTYPE HTML>
 <html lang="en">
-	<head>
-		<title>jsbb</title>
-		<script type='text/javascript' src='../steal/steal.js?jsbb'></script>
-	</head>
-	<body>
-	</body>
+  <head>
+    <title>jsbb</title>
+    <script type='text/javascript' src='../steal/steal.js?jsbb'></script>
+    <script type='text/javascript'>
+      steal.bind("ready", function() {
+      new MainController("body");
+      });
+    </script>
+  </head>
+  <body>
+  </body>
 </html>

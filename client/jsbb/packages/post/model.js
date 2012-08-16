@@ -1,5 +1,5 @@
-steal('can/model')
-.then('can/observe/validations',
+steal('can/model',
+      'can/observe/validations',
       'can/observe/attributes')
 .then(function() {
     var API_ROOT = "/api";

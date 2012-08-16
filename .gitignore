@@ -4,5 +4,7 @@ server/logs
 server/session
 server/node_modules
 client/build
+client/jsbb/production.js
+client/jsbb/production.css
 testresults.xml
 *~

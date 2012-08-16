@@ -1,4 +1,2 @@
-steal("funcunit", "funcunit/qunit", "jsbb/resources", "jsbb/models")
-.then('./string_test.js')
-.then('./date_test.js')
+steal("funcunit", "funcunit/qunit", "can/util")
 .then('./post_test.js');

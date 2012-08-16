@@ -12,10 +12,12 @@ steal('can/control',
 	    this.element.html(can.view('jsbb/packages/post/create/view.ejs'));
 	},
 	
-	submit: function(el, ev){
+	"button#create_post_button click": function(el, ev){
+	    steal.dev.log("submit click()");
 	    ev.preventDefault();
-	    $("#create_post_button").html('Creating...');
-	    var post = new PostModel(el.formParams());
+	    this.element.find("button#create_post_button").html('Creating...');
+	    var postData = this.element.find("#create_post_form").formParams();
+	    var post = new PostModel(postData);
 	    if (!post.errors()) {
 		post.save(this.proxy('success'), this.proxy('error'));
 	    } else {
@@ -24,12 +26,12 @@ steal('can/control',
 	},
 	    
 	success: function(){
-	    $("#create_post_button").html('Create');
-	    $("form")[0].reset()
+	    this.element.find("button#create_post_button").html('Create');
+	    this.element.find("form")[0].reset()
 	},
 	
 	error: function() {
-            $("#create_post_button").html('Failed');
+            this.element.find("button#create_post_button").html('Failed');
 	}
     }) 
 });

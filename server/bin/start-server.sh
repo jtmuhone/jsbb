@@ -10,7 +10,7 @@ JSBB_SESSION_PORT=12346
 
 DIR=`dirname $0`
 JSBB_SERVER_HOME="$DIR/.."
-JSBB_CLIENT_HOME="$JSBB_SERVER_HOME/../client/build"
+JSBB_CLIENT_HOME="$JSBB_SERVER_HOME/../client"
 JSBB_LOGDIR="$JSBB_SERVER_HOME/logs"
 JSBB_APPDIR="$JSBB_CLIENT_HOME"
 JSBB_SERVER_PIDFILE=$JSBB_LOGDIR/server.pid
@@ -36,7 +36,7 @@ if [ ! -e $JSBB_SERVER_PIDFILE ]; then
   else
     echo "Unable to start Web server. ($JSBB_SERVER_EXIT_CODE)"
   fi  
-
+  
 else
 
   echo "Web server is running or server pidfile already exists. ($JSBB_SERVER_PIDFILE)"
